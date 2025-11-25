@@ -1,0 +1,121 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.navbar {
+    background-color: $bg-card;
+    border-bottom: 1px solid color-mix(in srgb, var(--text-secondary), transparent 90%);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    height: 64px;
+    @include flex-center;
+
+    &__container {
+        @include container;
+        @include flex-between;
+        width: 100%;
+    }
+
+    &__brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: -0.025em;
+        color: $text-primary;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__links {
+        display: none;
+
+        @media (min-width: $breakpoint-md) {
+            display: flex;
+            gap: 2rem;
+        }
+
+        a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: $text-secondary;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            &:hover {
+                color: $text-primary;
+            }
+
+            &.active {
+                color: $color-blue;
+            }
+
+            i {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__theme-toggle {
+        background-color: $bg-input;
+        border-radius: 9999px;
+        padding: 0.25rem;
+        width: 3rem;
+        display: flex;
+        justify-content: flex-end; // Default for dark mode (moon on right)
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        // When light mode is active (we can check via a class on the icon or parent, 
+        // but since we are using React state to change the icon content/position, 
+        // let's rely on the icon's class to change alignment or just use flex alignment)
+
+        // Actually, a better way for a toggle is to have the circle move.
+        // Let's adjust the flex alignment based on a class if we had one on the container,
+        // or we can just let the React component handle the "justify-content" or "flex-direction".
+        // But simpler:
+
+        &:has(.light) {
+            justify-content: flex-start;
+            background-color: #e5e7eb; // Light gray for light mode track
+        }
+
+        &-icon {
+            background-color: #6b7280; // gray-500
+            border-radius: 50%;
+            width: 1rem;
+            height: 1rem;
+            font-size: 0.625rem;
+            @include flex-center;
+            transition: all 0.3s ease;
+
+            &.light {
+                background-color: #fbbf24; // yellow-400
+                color: #fff;
+            }
+        }
+    }
+
+    &__invite-btn {
+        background-color: $color-blue-hover;
+        color: $text-primary;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+        font-size: 0.875rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: $color-blue;
+        }
+    }
+}

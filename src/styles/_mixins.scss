@@ -1,0 +1,36 @@
+@use 'variables' as *;
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: $breakpoint-sm) {
+        padding: 0 1.5rem;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        padding: 0 2rem;
+    }
+}
+
+@mixin hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+}

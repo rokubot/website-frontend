@@ -1,0 +1,74 @@
+:root {
+    // Dark Mode (Default)
+    --bg-dark: #111827; // gray-900
+    --bg-card: #1f2937; // gray-800
+    --bg-card-hover: #2d3748; // gray-750 approx
+    --bg-input: #374151; // gray-700
+    --bg-discord: #36393f;
+    --bg-discord-hover: #32353b;
+
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db; // gray-300
+    --text-muted: #9ca3af; // gray-400
+
+    --color-blue: #3b82f6;
+    --color-blue-hover: #2563eb;
+    --color-pink: #ec4899;
+    --color-pink-hover: #db2777;
+    --color-green: #10b981;
+    --color-yellow: #f59e0b;
+    --color-purple: #8b5cf6;
+    --color-cyan: #06b6d4;
+    --color-indigo: #6366f1;
+    --color-red: #ef4444;
+    --color-orange: #f97316;
+}
+
+[data-theme="light"] {
+    --bg-dark: #f3f4f6; // gray-100
+    --bg-card: #ffffff; // white
+    --bg-card-hover: #f9fafb; // gray-50
+    --bg-input: #e5e7eb; // gray-200
+    --bg-discord: #ffffff;
+    --bg-discord-hover: #f3f4f6;
+
+    --text-primary: #111827; // gray-900
+    --text-secondary: #4b5563; // gray-600
+    --text-muted: #6b7280; // gray-500
+}
+
+// SCSS Variables mapping to CSS Variables for easier usage if needed, 
+// but we should prefer using var() directly in other files to ensure dynamic switching.
+// However, to minimize refactoring noise, we can re-assign the SCSS vars to the CSS vars.
+
+$bg-dark: var(--bg-dark);
+$bg-card: var(--bg-card);
+$bg-card-hover: var(--bg-card-hover);
+$bg-input: var(--bg-input);
+$bg-discord: var(--bg-discord);
+$bg-discord-hover: var(--bg-discord-hover);
+
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$text-muted: var(--text-muted);
+
+$color-blue: var(--color-blue);
+$color-blue-hover: var(--color-blue-hover);
+$color-pink: var(--color-pink);
+$color-pink-hover: var(--color-pink-hover);
+$color-green: var(--color-green);
+$color-yellow: var(--color-yellow);
+$color-purple: var(--color-purple);
+$color-cyan: var(--color-cyan);
+$color-indigo: var(--color-indigo);
+$color-red: var(--color-red);
+$color-orange: var(--color-orange);
+
+// Fonts
+$font-family-base: 'Inter', sans-serif;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;

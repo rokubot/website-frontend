@@ -1,0 +1,245 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.features {
+    padding: 6rem 1rem;
+    background-color: $bg-discord; // Using pattern-bg class in HTML, but here we can apply it to the section
+
+    &__container {
+        @include container;
+    }
+
+    // Highlight Section (Moderation)
+    &__highlight {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+        margin-bottom: 8rem;
+
+        @media (min-width: $breakpoint-md) {
+            flex-direction: row;
+        }
+
+        &-visual {
+            width: 100%;
+
+            @media (min-width: $breakpoint-md) {
+                width: 50%;
+            }
+        }
+
+        &-content {
+            width: 100%;
+            text-align: left;
+
+            @media (min-width: $breakpoint-md) {
+                width: 50%;
+            }
+
+            h2 {
+                font-size: 2.25rem;
+                font-weight: 700;
+                color: $color-blue; // blue-400
+                margin-bottom: 1.5rem;
+            }
+
+            p {
+                font-size: 1.125rem;
+                color: $text-secondary;
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+
+            .info-box {
+                padding: 1rem;
+                background-color: $bg-card;
+                border-radius: 0.5rem;
+                border-left: 4px solid $color-blue; // blue-500
+
+                p {
+                    font-size: 0.875rem;
+                    color: $text-secondary;
+                    margin-bottom: 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+            }
+        }
+    }
+
+    // Mock Chat Interface
+    .mock-chat {
+        background-color: $bg-discord;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        padding: 1rem;
+        border-left: 4px solid $bg-input;
+
+        &__message {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+
+            &:hover {
+                background-color: $bg-discord-hover;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+
+            &--blue {
+                background-color: $color-indigo;
+            }
+
+            &--pink {
+                background-color: $color-pink;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                font-size: 0.75rem;
+            }
+        }
+
+        &__content {
+            flex: 1;
+        }
+
+        &__header {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        &__username {
+            font-weight: 500;
+            color: $text-primary;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &__timestamp {
+            font-size: 0.75rem;
+            color: $text-muted;
+        }
+
+        &__bot-tag {
+            background-color: #5865F2;
+            color: white;
+            font-size: 0.625rem;
+            padding: 0 0.25rem;
+            border-radius: 0.25rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        &__text {
+            color: $text-secondary;
+            font-size: 1rem;
+            line-height: 1.375rem;
+        }
+    }
+
+    // Grid Section
+    &__grid-header {
+        text-align: center;
+        margin-bottom: 4rem;
+
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: $text-primary;
+            margin-bottom: 1rem;
+
+            @media (min-width: $breakpoint-md) {
+                font-size: 3rem;
+            }
+        }
+
+        p {
+            color: $text-muted;
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        a {
+            color: $color-blue;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: color-mix(in srgb, var(--color-blue), transparent 70%);
+
+            &:hover {
+                color: $color-blue-hover;
+            }
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+
+        @media (min-width: $breakpoint-md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: $breakpoint-lg) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__card {
+        background-color: $bg-card;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        border: 1px solid color-mix(in srgb, var(--text-secondary), transparent 90%);
+        transition: all 0.3s ease;
+        cursor: default;
+
+        &:hover {
+            background-color: $bg-card-hover;
+            border-color: color-mix(in srgb, var(--color-pink), transparent 50%); // Default hover color, can be overridden
+        }
+
+        &-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: $text-primary;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 0.875rem;
+            color: $text-muted;
+            line-height: 1.6;
+        }
+    }
+}

@@ -1,0 +1,101 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.footer {
+    background-color: $bg-dark;
+    border-top: 1px solid rgba($text-secondary, 0.1);
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+
+    &__container {
+        @include container;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+
+        @media (min-width: $breakpoint-md) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__brand {
+        &-name {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: $text-primary;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        &-desc {
+            color: $text-muted;
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        &-socials {
+            display: flex;
+            gap: 1rem;
+
+            a {
+                color: $text-muted;
+                font-size: 1.25rem;
+
+                &:hover {
+                    color: $text-primary;
+                }
+            }
+        }
+    }
+
+    &__column {
+        h3 {
+            color: $text-primary;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            li a {
+                color: $text-muted;
+                font-size: 0.875rem;
+
+                &:hover {
+                    color: $color-pink;
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        border-top: 1px solid color-mix(in srgb, var(--text-secondary), transparent 90%);
+        padding-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        color: #6b7280; // gray-500
+        font-size: 0.875rem;
+
+        @media (min-width: $breakpoint-md) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &-legal {
+            font-size: 0.75rem;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@use 'variables';
+@use 'reset';
+@use 'mixins';
+
+@use 'components/navbar';
+@use 'components/hero';
+@use 'components/stats';
+@use 'components/features';
+@use 'components/testimonials';
+@use 'components/footer';
+
+.pattern-bg {
+    background-color: #1a1b1e;
+    background-image: radial-gradient(#2c2e33 1px, transparent 1px);
+    background-size: 30px 30px;
+}
