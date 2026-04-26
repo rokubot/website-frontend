@@ -61,7 +61,7 @@ export default function BetaTestingPage() {
 
   // ── On mount: check if user is logged in ──────────────────────────────────
   useEffect(() => {
-    fetch(`${API_BASE}/api/auth/me`, { credentials: 'include' })
+    fetch(`${API_BASE}/auth/me`, { credentials: 'include' })
       .then(async (res) => {
         if (res.status === 401) {
           setAuthState('unauthenticated');
@@ -99,7 +99,7 @@ export default function BetaTestingPage() {
     setLoadingServers(true);
     setFetchError(false);
     try {
-      const res = await fetch(`${API_BASE}/api/servers/managed`, { credentials: 'include' });
+      const res = await fetch(`${API_BASE}/servers/managed`, { credentials: 'include' });
       if (!res.ok) throw new Error('Failed to fetch guilds');
       const data: Server[] = await res.json();
       setServers(data);
@@ -138,7 +138,7 @@ export default function BetaTestingPage() {
     setSubmitStatus('idle');
     setSubmitError('');
     try {
-      const res = await fetch(`${API_BASE}/api/beta/enroll`, {
+      const res = await fetch(`${API_BASE}/beta/enroll`, {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
@@ -212,7 +212,7 @@ export default function BetaTestingPage() {
               You need to connect your Discord account so we can see which servers you manage.
             </p>
             <a
-              href={`${API_BASE}/api/auth/login?return_to=/beta`}
+              href={`${API_BASE}/auth/login?return_to=/beta`}
               className="beta-page__login-btn"
             >
               <i className="fab fa-discord" />
