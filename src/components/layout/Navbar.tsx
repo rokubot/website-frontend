@@ -1,9 +1,11 @@
 
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 
 const Navbar = () => {
   const [theme, setTheme] = useState('dark');
+  const location = useLocation();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -17,16 +19,16 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar__container">
         <div className="navbar__brand">
-          <span>Roku</span>
+          <Link to="/"><span>Roku</span></Link>
         </div>
 
         <div className="navbar__links">
-          <a href="#" className="active">
+          <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
             <i className="fas fa-home"></i> Home
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="/commands" className={location.pathname === '/commands' ? 'active' : ''}>
             <i className="fas fa-terminal"></i> Commands
-          </a>
+          </Link>
           <a href="https://status.rokubot.com">
             <i className="fas fa-check-circle"></i> Status
           </a>
