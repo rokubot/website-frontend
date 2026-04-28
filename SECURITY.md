@@ -13,8 +13,22 @@ branch only.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+Please report suspected vulnerabilities privately to **security@example.com**.
+If you prefer, you can also use GitHub Security Advisories for private
+reporting: **https://github.com/OWNER/REPOSITORY/security/advisories/new**.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+When submitting a report, please include:
+
+- A description of the issue and the affected component(s)
+- Steps to reproduce the problem or a proof of concept
+- The affected version(s), commit SHA, or deployment details
+- Any known impact, including confidentiality, integrity, or availability concerns
+- Your contact information for follow-up questions
+
+We will acknowledge receipt within **3 business days** and will provide status
+updates at least every **7 business days** until the issue is resolved or
+otherwise closed.
+
+Please **do not disclose the vulnerability publicly** (including in GitHub
+issues, discussions, or pull requests) until we have completed triage and
+coordinated any necessary remediation and disclosure.
