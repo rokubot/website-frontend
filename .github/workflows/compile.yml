@@ -21,6 +21,12 @@ jobs:
           node-version: 20
           cache: 'npm'
 
+      - name: Create Production Environment File
+        run: |
+          echo "VITE_API_BASE=${{ secrets.VITE_API_BASE }}" > .env.production
+          echo "VITE_BOT_BASE=${{ secrets.VITE_BOT_BASE }}" >> .env.production
+          echo "VITE_CLUSTER_SECRET=${{ secrets.VITE_CLUSTER_SECRET }}" >> .env.production
+
       - name: Install and Build
         run: |
           npm ci
@@ -33,7 +39,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: "v${{ github.run_number }}"
+          tag_name: "v0.0.${{ github.run_number }}"
           name: "Production Build #${{ github.run_number }}"
           body: |
             Automated production build for commit ${{ github.sha }}.
