@@ -1,0 +1,43 @@
+name: Compile and Create Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Zip the Build Folder
+        run: |
+          zip -r website-build.zip dist/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-\${{ github.run_number }}
+          name: Production Build #\${{ github.run_number }}
+          body: |
+            Automated production build for commit \${{ github.sha }}.
+            Download the `website-build.zip` below and extract it into your Nginx directory.
+          draft: false
+          prerelease: false
+          files: website-build.zip
