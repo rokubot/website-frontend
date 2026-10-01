@@ -54,6 +54,15 @@
         font-size: 0.9rem;
         color: $text-secondary;
         font-weight: 500;
+        cursor: pointer;
+        position: relative;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: $bg-dark;
+        }
 
         img {
             width: 2rem;
@@ -61,6 +70,56 @@
             border-radius: 50%;
             border: 2px solid color-mix(in srgb, var(--color-pink), transparent 60%);
             object-fit: cover;
+        }
+    }
+
+    &__nav-user-chevron {
+        font-size: 0.75rem;
+        color: $text-muted;
+        transition: transform 0.2s;
+
+        &.open {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__nav-user-dropdown {
+        position: absolute;
+        top: calc(100% + 0.25rem);
+        right: 0;
+        background-color: $bg-card;
+        border: 1px solid color-mix(in srgb, var(--text-secondary), transparent 80%);
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        z-index: 100;
+        min-width: 150px;
+        overflow: hidden;
+        animation: dropdownIn 0.15s ease;
+    }
+
+    &__nav-user-dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        color: $color-red;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.2s;
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: left;
+        font-family: inherit;
+        font-size: 0.9rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--color-red), transparent 90%);
+        }
+
+        i {
+            font-size: 1rem;
         }
     }
 
@@ -415,6 +474,7 @@
             opacity: 0;
             transform: translateY(-8px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -568,7 +628,9 @@
     }
 
     @keyframes spin {
-        to { transform: rotate(360deg); }
+        to {
+            transform: rotate(360deg);
+        }
     }
 
     // ─── Submit Button ────────────────────────────────────────────────────────
@@ -647,8 +709,15 @@
     }
 
     @keyframes slideUp {
-        from { opacity: 0; transform: translateY(8px); }
-        to   { opacity: 1; transform: translateY(0);   }
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     &__status-icon {
@@ -659,7 +728,10 @@
         flex-shrink: 0;
         background-color: currentColor;
 
-        i { color: $bg-dark; font-size: 0.875rem; }
+        i {
+            color: $bg-dark;
+            font-size: 0.875rem;
+        }
     }
 
     &__status-text {

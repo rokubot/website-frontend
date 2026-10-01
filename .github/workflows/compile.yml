@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Create Production Environment File
@@ -40,7 +40,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: "v0.0.${{ github.run_number }}"
-          name: "Production Build #${{ github.run_number }}"
+          name: "Production Build V0.0.#${{ github.run_number }}"
           body: |
             Automated production build for commit ${{ github.sha }}.
             Download the `website-build.zip` below and extract it into your Nginx directory.

@@ -50,6 +50,7 @@ export default function BetaTestingPage() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const [selectedServer, setSelectedServer] = useState<Server | null>(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,6 +59,7 @@ export default function BetaTestingPage() {
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const userDropdownRef = useRef<HTMLDivElement>(null);
 
   // ── On mount: check if user is logged in ──────────────────────────────────
   useEffect(() => {
@@ -80,6 +82,9 @@ export default function BetaTestingPage() {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsDropdownOpen(false);
+      }
+      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target as Node)) {
+        setIsUserDropdownOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -166,6 +171,19 @@ export default function BetaTestingPage() {
     ? currentUser.global_name ?? currentUser.username
     : '';
 
+  const handleLogout = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      await fetch(`${API_BASE}/auth/logout`, { credentials: 'include' });
+    } catch (err) {
+      console.error('Logout failed:', err);
+    } finally {
+      setAuthState('unauthenticated');
+      setCurrentUser(null);
+      setIsUserDropdownOpen(false);
+    }
+  };
+
   return (
     <div className="beta-page">
       {/* ── Navbar ─────────────────────────────────────────────────────────── */}
@@ -176,12 +194,26 @@ export default function BetaTestingPage() {
             <span className="beta-page__brand-badge">BETA</span>
           </div>
           {authState === 'authenticated' && currentUser && (
-            <div className="beta-page__nav-user">
+            <div 
+              className="beta-page__nav-user" 
+              ref={userDropdownRef}
+              onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
+            >
               <img
                 src={userAvatarUrl(currentUser)}
                 alt={displayName}
               />
               <span>{displayName}</span>
+              <i className={`fas fa-chevron-down beta-page__nav-user-chevron${isUserDropdownOpen ? ' open' : ''}`} />
+
+              {isUserDropdownOpen && (
+                <div className="beta-page__nav-user-dropdown">
+                  <button type="button" onClick={handleLogout} className="beta-page__nav-user-dropdown-item">
+                    <i className="fas fa-sign-out-alt" />
+                    Log out
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>
