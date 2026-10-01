@@ -8,6 +8,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    environment: Production
     permissions:
       contents: write
 
@@ -23,8 +24,8 @@ jobs:
 
       - name: Create Production Environment File
         run: |
-          echo "VITE_API_BASE=${{ secrets.VITE_API_BASE }}" > .env.production
-          echo "VITE_BOT_BASE=${{ secrets.VITE_BOT_BASE }}" >> .env.production
+          echo "VITE_API_BASE=${{ vars.VITE_API_BASE }}" > .env.production
+          echo "VITE_BOT_BASE=${{ vars.VITE_BOT_BASE }}" >> .env.production
           echo "VITE_CLUSTER_SECRET=${{ secrets.VITE_CLUSTER_SECRET }}" >> .env.production
 
       - name: Install and Build
@@ -40,7 +41,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: "v0.0.${{ github.run_number }}"
-          name: "Production Build V0.0.#${{ github.run_number }}"
+          name: "Production Build V0.0.${{ github.run_number }}"
           body: |
             Automated production build for commit ${{ github.sha }}.
             Download the `website-build.zip` below and extract it into your Nginx directory.
