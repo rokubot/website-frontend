@@ -410,7 +410,7 @@ export default function PolicyPage() {
             </div>
             <h1 className="policy-hero__title">Your Privacy Matters</h1>
             <p className="policy-hero__meta">
-              <i className="fas fa-calendar-alt" /> Last updated: May 13, 2023
+              <i className="fas fa-calendar-alt" /> Last updated: Oct 29, 2026
             </p>
             <p className="policy-hero__desc">
               Roku is a Discord bot. We collect only the minimum data needed to make the bot work.
