@@ -16,9 +16,9 @@ const sections: PolicySection[] = [
     content: (
       <>
         <p>
-          This Privacy Policy describes our policies and procedures on the collection, use, and
-          disclosure of your information when you use the Service — including the Roku Discord bot
-          and this website — and tells you about your privacy rights and how the law protects you.
+          This Privacy Policy explains how we collect and use your information when you use our
+          Service, including the Roku Discord bot and this website. It also explains your
+          privacy rights and how the law protects you.
         </p>
         <p>
           We use your personal data only to provide and improve the Service. By using the Service,
@@ -88,9 +88,9 @@ const sections: PolicySection[] = [
             <strong>Presence data is temporary</strong>
             <p>
               Commands such as <code>remindonline</code> require Roku to temporarily monitor a
-              user&apos;s online status. Presence data is held <em>only</em> for the duration of
-              that task — the moment Roku completes the action, the data is immediately and
-              permanently deleted from memory and is never written to a database.
+              user&apos;s online status. We keep this data only while the task is running. As soon
+              as Roku completes the action, it is deleted from memory and is never written to a
+              database.
             </p>
           </div>
         </div>
@@ -245,34 +245,16 @@ const sections: PolicySection[] = [
             <strong>To manage your requests:</strong> to attend and manage your requests to us.
           </li>
           <li>
-            <strong>For business transfers:</strong> we may use your information to evaluate or
-            conduct a merger, divestiture, restructuring, or other sale or transfer of our assets.
-          </li>
-          <li>
             <strong>For other purposes</strong> such as data analysis, identifying usage trends,
             and evaluating the effectiveness of our Service.
           </li>
         </ul>
-        <p>We may share your personal information in the following situations:</p>
-        <ul>
-          <li>
-            <strong>With Service Providers</strong> to monitor and analyse the use of our Service.
-          </li>
-          <li>
-            <strong>For business transfers</strong> in connection with any merger, sale of Company
-            assets, or acquisition.
-          </li>
-          <li>
-            <strong>With Affiliates</strong> who are required to honour this Privacy Policy.
-          </li>
-          <li>
-            <strong>With business partners</strong> to offer you certain products, services or
-            promotions.
-          </li>
-          <li>
-            <strong>With your consent</strong> for any other purpose.
-          </li>
-        </ul>
+        <p>
+          We do not sell or rent your personal data, or share it with third parties for their own
+          purposes. Our Service is hosted on a virtual private server (VPS) provided by Microsoft
+          Azure. Data stored by the Service is hosted on Azure infrastructure so we can operate the
+          bot and website.
+        </p>
       </>
     ),
   },
@@ -283,9 +265,9 @@ const sections: PolicySection[] = [
     content: (
       <>
         <p>
-          The Company will retain your Personal Data only for as long as is necessary for the
-          purposes set out in this Privacy Policy — to comply with our legal obligations, resolve
-          disputes, and enforce our legal agreements and policies.
+          We keep your personal data only for as long as needed for the purposes described in this
+          Privacy Policy, including meeting legal obligations, resolving disputes, and enforcing
+          our agreements and policies.
         </p>
         <p>
           Specifically for Roku&apos;s bot data: configuration data (User ID, Guild ID, command
@@ -301,58 +283,16 @@ const sections: PolicySection[] = [
     ),
   },
   {
-    id: 'transfer',
-    title: 'Transfer of Your Personal Data',
-    icon: 'fas fa-exchange-alt',
-    content: (
-      <>
-        <p>
-          Your information, including Personal Data, is processed at the Company&apos;s operating
-          offices and in any other places where the parties involved in the processing are located.
-          This means information may be transferred to — and maintained on — computers located
-          outside of your state, province, country or other governmental jurisdiction where data
-          protection laws may differ.
-        </p>
-        <p>
-          Your consent to this Privacy Policy followed by your submission of such information
-          represents your agreement to that transfer. The Company will take all steps reasonably
-          necessary to ensure your data is treated securely and in accordance with this Policy.
-          No transfer of your Personal Data will take place to an organisation or country unless
-          adequate controls are in place.
-        </p>
-      </>
-    ),
-  },
-  {
     id: 'disclosure',
-    title: 'Disclosure of Your Personal Data',
+    title: 'Legal Disclosures',
     icon: 'fas fa-gavel',
     content: (
       <>
-        <h3>Business Transactions</h3>
         <p>
-          If the Company is involved in a merger, acquisition or asset sale, your Personal Data may
-          be transferred. We will provide notice before your data becomes subject to a different
-          Privacy Policy.
+          Apart from hosting on Microsoft Azure infrastructure as described above, we do not
+          disclose your personal data. We may disclose it if we are legally required to do so, such
+          as in response to a valid court order.
         </p>
-        <h3>Law Enforcement</h3>
-        <p>
-          Under certain circumstances, the Company may be required to disclose your Personal Data
-          if required to do so by law or in response to valid requests by public authorities (e.g.
-          a court or a government agency).
-        </p>
-        <h3>Other Legal Requirements</h3>
-        <p>
-          The Company may disclose your Personal Data in the good faith belief that such action is
-          necessary to:
-        </p>
-        <ul>
-          <li>Comply with a legal obligation</li>
-          <li>Protect and defend the rights or property of the Company</li>
-          <li>Prevent or investigate possible wrongdoing in connection with the Service</li>
-          <li>Protect the personal safety of Users of the Service or the public</li>
-          <li>Protect against legal liability</li>
-        </ul>
       </>
     ),
   },
@@ -362,11 +302,10 @@ const sections: PolicySection[] = [
     icon: 'fas fa-lock',
     content: (
       <p>
-        The security of your Personal Data is important to us. While we strive to use commercially
-        acceptable means to protect your data — including access controls and encryption where
-        applicable — no method of transmission over the Internet or method of electronic storage is
-        100% secure, and we cannot guarantee its absolute security. If you discover a security
-        issue, please report it through our Discord support server.
+        Your personal data matters to us. We use reasonable safeguards, such as access controls and
+        encryption where appropriate, to protect it. However, no method of sending or storing data
+        online is completely secure, so we cannot guarantee absolute security. If you find a
+        security issue, please report it through our Discord support server.
       </p>
     ),
   },
@@ -398,10 +337,9 @@ const sections: PolicySection[] = [
     content: (
       <>
         <p>
-          Our Service may contain links to other websites not operated by us — including Discord,
-          Spotify, and other third-party services. If you click a third-party link, you will be
-          directed to that site. We strongly advise you to review the Privacy Policy of every site
-          you visit.
+          Our Service may link to websites we do not operate, including Discord, Spotify, and other
+          third-party services. If you follow one of these links, you will be taken to that
+          website. We recommend reviewing the Privacy Policy of every site you visit.
         </p>
         <p>
           We have no control over and assume no responsibility for the content, privacy policies or
