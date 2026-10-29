@@ -1,5 +1,4 @@
 
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -40,7 +39,7 @@ const Footer = () => {
           <div className="footer__column">
             <h3>Legal</h3>
             <ul>
-              <li><Link to="/policy">Privacy Policy</Link></li>
+              <li><a href="#">Privacy Policy</a></li>
               <li><a href="#">Terms of Service</a></li>
               <li><a href="#">Cookie Policy</a></li>
             </ul>
