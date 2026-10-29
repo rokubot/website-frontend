@@ -76,9 +76,42 @@ const sections: PolicySection[] = [
         <div className="policy-callout policy-callout--info">
           <i className="fas fa-info-circle" />
           <p>
-            We do <strong>not</strong> store message content, voice activity, server member lists,
-            or any data beyond what is explicitly required by a command you invoke.
+            Roku does <strong>not</strong> store message content, voice activity, or server member
+            lists. Some features temporarily process member or message data as described below.
+            When logging is enabled, Roku can post relevant event details to a channel chosen by the
+            server admins. Those posts are part of the server&apos;s Discord history, not data
+            stored by Roku.
           </p>
+        </div>
+
+        <h4>Member &amp; Message Data</h4>
+        <div className="notice-card notice-card--blue">
+          <i className="fas fa-users" />
+          <div>
+            <strong>Member data is not stored</strong>
+            <p>
+              Roku uses the <strong>Server Members Intent</strong> to process join and leave events
+              for <code>welcome</code> and <code>goodbye</code> messages, and for logging when
+              enabled by server admins. This data is processed to provide those features and is
+              not stored by Roku. Admins configure these features and the logging channel. To opt
+              out, contact the server admins or leave the server.
+            </p>
+          </div>
+        </div>
+        <div className="notice-card notice-card--green">
+          <i className="fas fa-comments" />
+          <div>
+            <strong>Message data is not stored</strong>
+            <p>
+              Roku uses the <strong>Message Content Intent</strong> only for logging features
+              enabled by server admins. When enabled, Roku temporarily processes relevant message
+              data for events such as message deletion or edits, then posts the details to the
+              logging channel configured by the admins. Roku does not store this data in its own
+              database. Log posts may remain in the server&apos;s Discord history. Admins control
+              whether logging is enabled and where logs are sent. To opt out, contact the server
+              admins or leave the server.
+            </p>
+          </div>
         </div>
 
         <h4>Presence &amp; Spotify Data</h4>
@@ -147,9 +180,10 @@ const sections: PolicySection[] = [
         <div className="policy-callout policy-callout--info">
           <i className="fas fa-info-circle" />
           <p>
-            We request only the OAuth2 scopes needed for the feature in use. We do{' '}
-            <strong>not</strong> request access to read your messages, join servers on your behalf,
-            or perform any actions without your explicit interaction.
+            The website requests only the Discord OAuth2 scopes needed for the feature in use. It
+            does <strong>not</strong> request access to read your messages or join servers on your
+            behalf. The bot&apos;s privileged intents are separate and are used only for the
+            features described above.
           </p>
         </div>
 
